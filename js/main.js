@@ -34,6 +34,18 @@ function fetchJSONP(url, callback) {
     document.body.appendChild(script);
 }
 
-fetchJSONP(etsyUrl, function(data) {
-    console.log(data);
+fetchJSONP(etsyUrl, function(response) {
+    console.log(response);
+    var items = response.results;
+    items.forEach(displayItem);
 });
+
+function displayItem(item) {
+  var source = document.querySelector('#item-template').innerHTML;
+
+  var template = Handlebars.compile(source);
+  var outputHTML = template(item);
+
+  var itemsUl = document.querySelector('.items');
+  itemsUl.insertAdjacentHTML('beforeend', outputHTML);
+}

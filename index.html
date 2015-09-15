@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Etsy Recreation</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .character {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="main-body">
-            <div class="left-container">
-
-
-
-
-
-
-
-            </div>
-        </div>
+        <ul class="items js-items"></ul>
     </div>
-<script src="bower_components/handlebars/handlebars.js"></script>
-<script src="js/main.js"></script>
+
+    <script id="item-template" type="text/x-handlebars-template">
+        <li class="item">
+            <img src="{{Images.[0].url_170x135}}" alt="{{title}}">
+            <h3>{{title}}</h3>
+        </li>
+    </script>
+
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
